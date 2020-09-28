@@ -5,7 +5,10 @@ const key_strings = {
   number: '0123456789',
   symbol: '!@#$%^&*()?'
 };
-var passLength = prompt("Enter a password length (Must be between 8 and 128 characters)");
+var generatedPassword = "";
+
+
+var passLength = prompt("Choose a length from 8 to 128");
 
 var useLower = prompt("Do you want to use lowercase letters in password? (Yes or No)");
 useLower = useLower.toLowerCase();
@@ -18,6 +21,28 @@ useNumber = useNumber.toLowerCase();
 
 var useSymbol = prompt("Do you want to use symbols in password? (Yes or No)");
 useSymbol = useSymbol.toLowerCase();
+
+if (passLength <8 || passLength > 128) {
+  alert("Please enter a value between 8 and 128")
+}
+
+function generateRandomCharacter(){
+passCategories = [];
+
+if(useLower === "yes") passCategories.push(lowercase);
+if(useUpper === "yes") passCategories.push(uppercase);
+if(useNumber === "yes") passCategories.push(number);
+if(useSymbol === "yes") passCategories.push(symbol);
+
+// Selects category at random
+var randomCategory=Math.floor(Math.random()*passCategories.length);
+
+// Selects a character from category
+var categoryLength = passCategories[randomCategory].max-passCategories[randomCategory].min;
+var randomCharacter = Math.floor(Math.random()*categoryLength)+passCategories[randomCategory].min;
+
+return randomCharacter;
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
