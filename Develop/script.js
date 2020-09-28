@@ -1,23 +1,28 @@
 // Global Variables
+const key_strings = {
+  lowercase: 'abcdefghijklmnopqrstuvwxyz',
+  uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  number: '0123456789',
+  symbol: '!@#$%^&*()?'
+};
+var passLength = prompt("Enter a password length (Must be between 8 and 128 characters)");
 
-  
-  // var passCriteria = ["Lowercase", "Uppercase", "Special Characters", "Numbers"]
+var useLower = prompt("Do you want to use lowercase letters in password? (Yes or No)");
+useLower = useLower.toLowerCase();
 
-  // for (var i = 0; i < passCriteria.length; i++) {
-  // var userInput = prompt("Do you want to use " +passCriteria[i] +"?" +" Type Yes or No");
-  // userInput = userInput.toLowerCase();
-  //   if(passCriteria[i].userInput==="yes")
-  // }
+var useUpper = prompt("Do you want to use uppercase letters in password? (Yes or No)");
+useUpper = useUpper.toLowerCase();
 
-var passLength = document.querySelector('input[name="length"]');
-var passLower = document.querySelector('input[name="lowercase"]');
-var passUpper = document.querySelector('input[name="uppercase"]');
-var passNumber = document.querySelector('input[name="number"]');
-var passSpecial = document.querySelector('input[name="symbol"]');
+var useNumber = prompt("Do you want to use numbers in password? (Yes or No)");
+useNumber = useNumber.toLowerCase();
 
+var useSymbol = prompt("Do you want to use symbols in password? (Yes or No)");
+useSymbol = useSymbol.toLowerCase();
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+
 
 
 // Write password to the #password input
@@ -30,15 +35,3 @@ function writePassword() {
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// function writePassword(){
-//   document.getElementById("password").innerHTML = "NICE";
-// }
-
-
-
-//     if(userInput === "yes") {
-
-//     }
-//   }
-// }
